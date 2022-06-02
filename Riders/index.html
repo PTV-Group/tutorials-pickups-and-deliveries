@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Route Optimization</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+  </head>
+  <body>
+
+    <div class="viewport">
+        <div class="wrapper">
+            <h1>Route Optimization</h1>
+            <a href="https://company.ptvgroup.com/">by PTV Group</a>
+            <h3>Create your transports</h3>
+            <div class="location-settings">
+              <h4>Pickup location</h4>
+              <input id="pickup-location" placeholder="Enter pickup location" />
+              <ul id="pickup-location-suggestions" class="suggestions-list"></ul>
+              <div class="group">
+                <label>From</label>          
+                <select id="pickup-from">
+                  <option value="00:00">00:00</option>
+                  <option value="01:00">01:00</option>
+                  <option value="02:00">02:00</option>
+                  <option value="03:00">03:00</option>
+                  <option value="04:00">04:00</option>
+                  <option value="05:00">05:00</option>
+                  <option value="06:00">06:00</option>
+                  <option value="07:00">07:00</option>
+                  <option value="08:00" selected>08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                  <option value="23:00">23:00</option>
+                </select>
+                <label>To</label>
+                <select id="pickup-to">
+                  <option value="00:00">00:00</option>
+                  <option value="01:00">01:00</option>
+                  <option value="02:00">02:00</option>
+                  <option value="03:00">03:00</option>
+                  <option value="04:00">04:00</option>
+                  <option value="05:00">05:00</option>
+                  <option value="06:00">06:00</option>
+                  <option value="07:00">07:00</option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00" selected>20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                  <option value="23:00">23:00</option>
+                </select>
+              </div>
+              <div class="group">
+                <label>Service time</label>
+                <input id="pickup-service-time" type="number" min="0" max="1440" value="3" />
+                min
+              </div>
+            </div>
+
+            <div class="location-settings">
+              <h4>Delivery location</h4>
+              <input id="delivery-location" placeholder="Enter delivery location" />
+              <ul id="delivery-location-suggestions" class="suggestions-list"></ul>
+              <div class="group">
+                <label>From</label>
+                <select id="delivery-from">
+                  <option value="00:00">00:00</option>
+                  <option value="01:00">01:00</option>
+                  <option value="02:00">02:00</option>
+                  <option value="03:00">03:00</option>
+                  <option value="04:00">04:00</option>
+                  <option value="05:00">05:00</option>
+                  <option value="06:00">06:00</option>
+                  <option value="07:00">07:00</option>
+                  <option value="08:00" selected>08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                  <option value="23:00">23:00</option>
+                </select>
+                <label>To</label>
+                <select id="delivery-to">
+                  <option value="00:00">00:00</option>
+                  <option value="01:00">01:00</option>
+                  <option value="02:00">02:00</option>
+                  <option value="03:00">03:00</option>
+                  <option value="04:00">04:00</option>
+                  <option value="05:00">05:00</option>
+                  <option value="06:00">06:00</option>
+                  <option value="07:00">07:00</option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00" selected>20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                  <option value="23:00">23:00</option>
+                </select>
+              </div>
+              <div class="group">
+                <label>Service time</label>
+                <input id="delivery-service-time" type="number" min="0" max="1440" value="3" />
+                min
+              </div>
+            </div>
+
+            <button id="btn-add-transport" disabled>Add your transport</button>
+
+            <h4>Specified transports</h4>
+            <table id="transports-overview">
+              <thead>
+                <tr>
+                  <td>ID</td>
+                  <td>Pickup location</td>
+                  <td>Delivery location</td>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+
+            <div class="group">
+              <label>Number of vehicles:</label>
+              <input id="number-of-vehicles" type="number" min="1" max="5" value="2" />
+            </div>
+            <div class="group">
+              <label>Vehicle profile:</label>
+              <select id="vehicle-profile">
+                <option value="EUR_VAN" selected>EUR_VAN</option>
+                <option value="EUR_CAR">EUR_CAR</option>
+                <option value="USA_1_PICKUP">USA_1_PICKUP</option>
+                <option value="AUS_LCV_LIGHT_COMMERCIAL">AUS_LCV_LIGHT_COMMERCIAL</option>
+              </select>
+            </div>
+
+            <div class="group space-between">
+              <button id="btn-start-optimization" disabled>Optimize your transports</button>
+              <button id="clear-transports">Clear all data</button>
+            </div>
+
+            <div id="processing-indicator">
+              <div class="loader"></div>
+              <span>
+                Your transports will be optimized.<br />
+                This may take a while.
+              </span>
+            </div>
+
+        </div>
+
+        <div id="map"></div>
+
+        <div id="optimization-results">
+          <div>
+            <p id="hint-1" class="hint">Optimize your transports again to take newly added transports into account.</p>
+            <h3>Optimization results</h3>
+            <div id="vehicle-switcher" class="group">
+              <button id="previous-vehicle">&lt;</button>
+              <label id="vehicle-id">-</label>
+              <button id="next-vehicle">&gt;</button>
+            </div>
+            <table id="route-details">
+              <thead>
+                <tr>
+                  <td>#</td>
+                  <td>Stop</td>
+                  <td>Event</td>
+                  <td>Arrival time</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="key-value"><span>Travel distance</span><span id="vehicle-travel-distance">-</span></div>
+            <div class="key-value"><span>Travel time</span><span id="vehicle-travel-time">-</span></div>
+          </div>
+
+          <div id="kpis">
+            <p id="hint-2" class="hint">Optimize your transports again to take newly added transports into account.</p>
+            <h5>Vehicles</h5>
+            <div class="key-value"><span>Used</span><span id="used-vehicles">-</span></div>
+            <div class="key-value"><span>Unused</span><span id="unused-vehicles">-</span></div>
+            <h5>Transports</h5>
+            <div class="key-value"><span>Planned</span><span id="planned-transports">-</span></div>
+            <div class="key-value"><span>Unplanned</span><span id="unplanned-transports">-</span></div>
+            <h5>Totals</h5>
+            <div class="key-value"><span>Travel distance</span><span id="total-travel-distance">-</span></div>
+            <div class="key-value"><span>Travel time</span><span id="total-travel-time">-</span></div>
+            <div class="key-value"><span>Driving time</span><span id="total-driving-time">-</span></div>            
+            <div class="key-value"><span>Break time</span><span id="total-break-time">-</span></div>
+            <div class="key-value"><span>Rest time</span><span id="total-rest-time">-</span></div>
+            <div class="key-value"><span>Waiting time</span><span id="total-waiting-time">-</span></div>
+          </div>
+        </div>
+    </div>
+
+    <div id="error-log">
+      Oh no... something has gone wrong.<br />
+      The API returned the following:
+      <pre id="error-details"></pre>
+      <button id="close-error-details">Close</button>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-polylinedecorator@1.6.0/dist/leaflet.polylineDecorator.js"></script>
+    
+    <script src="./headerTileLayer.js"></script>
+    <script src="map-helper-functions.js"></script>
+    <script src="general-helper-functions.js"></script>
+	  <script src="route-optimization.js"></script>
+  </body>
+</html>
