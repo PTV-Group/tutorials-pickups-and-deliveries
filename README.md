@@ -3,6 +3,7 @@ Optimize specified transports (pickups and deliveries) and displays the optimal 
 </br>
 PTV Developer APIs used in this tutorial:
 - <a href="https://developer.myptv.com/Documentation/Raster%20Maps%20API/QuickStart.htm" target="_blank">Raster Maps API</a>
+- <a href="https://developer.myptv.com/Documentation/Geocoding%20API/QuickStart.htm" target="_blank">Geocoding &amp; Places API</a>
 - <a href="https://developer.myptv.com/Documentation/Route%20Optimization%20API/QuickStart.htm" target="_blank">Route Optimization API</a>
 #
 ## Try it <a href="https://developer.myptv.com/Applications/RouteOptimization/Riders/index.html" target="_blank">here</a>.
