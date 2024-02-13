@@ -322,7 +322,7 @@ const populateRouteDetails = (vehicleIndex = 0) => {
 
         numberCell.innerText = index + 1;
         stopCell.innerText = lookupLocation(stop.locationId).formattedAddress;
-        eventCell.innerText = stop.deliveryIds.length > 0 ? "Delivery" : "Pickup";
+        eventCell.innerText = stop.deliveryIds.length > 0 ? "Delivery" : (stop.pickupIds.length > 0 ? "Pickup" : "Vehicle Location");
         arrivalTimeCell.innerText = new Date(stop.reportForStop.arrivalTime).toLocaleTimeString();
     });
 
