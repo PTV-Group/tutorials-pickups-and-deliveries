@@ -25,7 +25,7 @@ const initialzeMap = () => {
     L.control.zoom({ position: "bottomright" }).addTo(map);
 
     L.tileLayer(APIEndpoints.GetImageTiles, {
-        attribution: "© " + new Date().getFullYear() + ", PTV Group, HERE",
+        attribution: "© " + new Date().getFullYear() + ", PTV Logistics, HERE",
         minZoom: 5,
         maxZoom: 23
     }, [
